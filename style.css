@@ -1,0 +1,244 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #0d6efd !important; /*color de fondo*/
+}
+.container{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    padding: 10px;  
+    max-width: 1050px;
+}
+section{
+    background: white; /* color de secciones laterales*/
+    border-radius: 7px;
+}
+.tools-board .row{
+    margin-bottom: 20px;
+    width: 90%;
+    margin-left: 10px;
+}
+.tools-board .row{
+    margin-bottom: 20px;
+}
+.row .options{
+    list-style: none;
+    margin: 10px 0 0 5px;
+}
+.row .options .option{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+/* hace que cambie de color cuando el mause este encima*/
+.option:is(:hover,.active) img{
+    filter:invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%) contrast(100%);
+}
+
+.option:where(span,label){
+    cursor: pointer;
+    color: #5a6168;
+    padding-left: 10px;
+}
+/*hace que el texto de las opciones cambia de color cuando se pasa el mause*/
+.option:is(:hover,.active) :where(span,label){
+    color: #4a98f4 ;
+}
+/* tamaño de la opcion de rellenar y mause*/
+.option #fill-color{
+    cursor: pointer;
+    height: 14px;
+    width: 14px;
+}
+#fill-color:checked ~ label{
+    color: #4a98f4;
+}
+.option #size-slider{
+    width: 100%;
+    height: 5px;
+    margin-top: 10px;
+}
+.colors .options{
+    display: flex;
+    justify-content: space-between;
+}
+.colors .option{
+    height: 20px;
+    width: 20px;
+    background: red;
+    border-radius: 50%;
+    margin-top: 3px;
+    position: relative;
+}
+.colors .option:nth-child(1){
+    background-color: #fff;
+    border: 1px solid #bfbfbf;
+}
+.colors .option:nth-child(2){
+    background-color: #000;
+}
+.colors .option:nth-child(3){
+    background-color: #E02020;
+}
+.colors .option:nth-child(4){
+    background-color: #6DD400;
+}
+.colors .option:nth-child(5){
+    background-color: #4A98F4;
+}
+.colors .option.selected::before{
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    background: inherit;
+    border-radius: inherit;
+    border: 2px solid #ffff;
+    transform: translate(-50%, -50%);
+}
+.colors .option:first-child.selected::before{ 
+    border-color: #ccc;
+}
+.option #color-picker{
+    opacity: 0;
+    cursor: pointer;
+}
+.buttons button{
+    width: 100%;
+    color: #ffff;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    padding: 11px 0;
+    margin-bottom: 13px;
+    background: none;
+    border-radius: 5px;
+}
+.buttons .clear-canvas{
+    color: grey;
+    border: 1px salid gray;
+    transition: all 0.3s ease;
+}
+.clear-canvas:hover{
+    color: #ffff;
+    background: #6c757d;
+}
+.buttons .save-img{
+    background-color:#4a98f4;
+    border: 1px salid #4a98f4;
+}
+.drawing-board{
+     flex: 1;
+}
+
+.drawing-board canvas{
+    width: 100%;
+    height: 100%;
+}
+
+#commentsContainer {
+  max-height: 225px; /* Ajusta la altura máxima según tu diseño */
+  overflow-y: auto;  /* Habilita el scroll vertical */
+  padding-right: 10px; /* Espacio para evitar que el scroll tape contenido */
+}
+
+#comentarios{
+    height: 565px !important;
+    width: 300px;
+}
+
+/*cambio de tema*/
+
+:root {
+  --bg-color: #0d6efd;
+  --section-bg: white;
+  --text-color: #000;
+  --card-bg: #4A98F4;
+  --card-text: #ffffff;
+}
+
+body.dark-mode {
+  --bg-color: #121212;
+  --section-bg: #1e1e1e;
+  --text-color: #f0f0f0;
+  --card-bg: #2c3e50;
+  --card-text: #f0f0f0;
+}
+
+body {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color);
+}
+
+section {
+  background: var(--section-bg);
+  color: var(--text-color);
+  border-radius: 7px;
+}
+
+.card {
+  background-color: var(--card-bg) !important;
+  color: var(--card-text);
+  border-radius: 20px;
+}
+
+.card label {
+  color: var(--card-text);
+}
+
+.card input,
+.card textarea {
+  background-color: #ffffff;
+  color: #000;
+}
+
+body.dark-mode .card input,
+body.dark-mode .card textarea {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  border: 1px solid #555;
+}
+
+/* Campos de texto en modo oscuro */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode .form-control {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  border: 1px solid #555;
+}
+
+/* Etiquetas y texto dentro del formulario */
+body.dark-mode label,
+body.dark-mode .form-label,
+body.dark-mode .card {
+  color: var(--card-text);
+}
+
+/* Placeholder en modo oscuro */
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #ccc;
+}
+
+
+
+#theme-switch{
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--base-variant);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
